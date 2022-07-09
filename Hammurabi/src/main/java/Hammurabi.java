@@ -36,9 +36,10 @@ public class Hammurabi {
         int costOfLand = 19;
         int year = 1;
         int deaths;
-        int percentDeaths;
         int harvest;
         int newLand;
+        int plagueDeaths;
+        int percentDead;
 
         System.out.println("WELCOME TO\n" +
                 "===================\n" +
@@ -97,6 +98,8 @@ public class Hammurabi {
                 "(enter a number for how many bushels of grain you would like to feed each citizen, and press Enter)");
 
         int grainToFeedPeople = scanner.nextInt();
+        if (grainToFeedPeople < 20) {System.out.println("A frugal decision, the people will have to learn restraint and ration their foods properly");}
+        else if (grainToFeedPeople > 20) {System.out.println("The people will shout your name in the streets, and rejoice!");}
 
         System.out.println("Certainly you have made the right choice Your Eminence.\n" +
                 "Finally, we must decide how many acres of land we wish to plant with grain!\n" +
@@ -128,18 +131,25 @@ public class Hammurabi {
              if (landToBuy != 0) {System.out.println("You Chose to purchase " + GREEN_BRIGHT + landToBuy + TEXT_RESET + " acres of land");}
              else if (landToBuy == 0) {System.out.println("You chose to sell " + GREEN_BRIGHT + landToSell + TEXT_RESET + " acres of land");}
              else {System.out.println("You did not make any changes to the amount of land that we owned last year.");}
-             System.out.println("You fed each of our citizens " + YELLOW_BRIGHT + grainToFeedPeople + TEXT_RESET + " bushels of grain.\n" +
-                     "And finally, you planted " + landToPlant + " acres of land with grain.\n\n" +
+             System.out.println("You fed each of our citizens " + YELLOW_BRIGHT + grainToFeedPeople + TEXT_RESET + " bushels of grain.");
+             System.out.println("And finally, you planted " + landToPlant + " acres of land with grain.\n\n" +
                      "Press Enter to continue.\n");
              try{System.in.read();}
              catch(Exception e){}
-
 
              year++;
 
          //Call methods to update holdings
          //wait for classes from eric and tristan
 
+        //AFTER METHODS RUN, HERE IS THE REST OF THE UPDATE!
+
+            System.out.println("Let's get right to the news of this past year, Great Emperor");
+
+//            if (plagueDeaths != 0) {
+//                System.out.println("The Gods frowned upon us, a great plague swept through the lands killing " + RED_BRIGHT + plagueDeaths + TEXT_RESET + " people.\n" +
+//                        currentPop + "citizens remain.");
+//            }
 
 
 
@@ -161,12 +171,4 @@ public class Hammurabi {
 
     }
 }
-
-//UNUSED DIALOGUE GOES OUT HERE
-
-//                "Next, we must decide if we wish to sell any of our land.\n" +
-//                "We currently have " + currentLand + "acres, and we can sell them\n" +
-//                "for " + costOfLand + " bushels of grain. Tell me sire, how many acres\n" +
-//                "of land do you wish to sell?\n" +
-//                "(enter a number for how much land you would like to sell, and press Enter");
 
