@@ -3,8 +3,9 @@ import java.util.Scanner;
 
 
 //KYLE LAND
-//TRISTAN GRAIN
+//TRISTAN BUSHELS
 //ERIC PEOPLE
+
 public class Hammurabi {
     Random rand = new Random();
     Scanner scanner = new Scanner(System.in);
@@ -71,21 +72,22 @@ public class Hammurabi {
         System.out.println("Great Hammurabi! You have returned from your grand voyage to visit the newly built pyramids!\n" +
                 "I hope you found it rejuvenating. I am your High Priest Garza, I will report our holdings to you\n" +
                 "every year, and aid you in your decisions. You have much work to do. Our people need leadership!\n" +
-                "Much has changed since you departed, the economy has grown stagnant, our people have become slothful,\n" +
-                "Through our actions, we will return our great land of Sumer to glory!\n" +
+                "Much has changed since you departed, the economy has grown stagnant, and our people have become slothful.\n" +
+                "Through your actions, you shall return our great land of Sumer to glory and endless prosperity!\n" +
                 "We currently have " + CYAN_BRIGHT + currentPop + TEXT_RESET + " citizens, " + GREEN_BRIGHT + currentLand + TEXT_RESET + " acres for them to farm,\n" +
-                "(10 acres per citizen) and " + YELLOW_BRIGHT + currentBushels + TEXT_RESET + " bushels of grain in our stores.\n" +
-                "Our first order of business, we must decide how much land we wish to acquire!\n" +
+                "(1 citizen can farm 10 acres) and " + YELLOW_BRIGHT + currentBushels + TEXT_RESET + " bushels of grain in our stores.\n" +
+                "For our first order of business, we must decide how much land we wish to acquire!\n" +
                 "You may purchase more land, but it will cost " + PURPLE_BRIGHT + costOfLand + TEXT_RESET + " bushels of grain per acre.\n" +
                 "(enter a number for how much land you would like to buy, and press Enter)");
 
-
-
-        scanner.nextInt();
-//      CODE ABOVE IS PLACEHOLDER
-//      THIS IS WHERE THEY DECIDE WHETHER TO BUY OR SELL LAND!!
-//      scanner entry will decide. if they don't buy land, ask to sell
-//        Land.askHowManyAcresToBuy(costOfLand, acres);
+        int landToBuy = scanner.nextInt();
+        int landToSell = 0;
+        if (landToBuy == 0) {
+            System.out.println("If you do not wish to purchase more land, My Lord, then of course we can choose to\n" +
+                    "sell it instead! We can sell land for " + PURPLE_BRIGHT + costOfLand + TEXT_RESET + " bushels of grain per acre.\n" +
+                    "(enter a number for how much land you would like to sell, and press Enter)");
+            landToSell = scanner.nextInt();
+        }
 
         System.out.println("An excellent choice Sire. I am in awe of your wisdom.\n" +
                 "Next, we must decide how much food we desire to feed our people (if any *wink*).\n" +
@@ -94,42 +96,70 @@ public class Hammurabi {
                 "Remember that we only have " + YELLOW_BRIGHT + currentBushels + TEXT_RESET + " bushels of grain in our stores.\n" +
                 "(enter a number for how many bushels of grain you would like to feed each citizen, and press Enter)");
 
-
-        scanner.nextInt();
-//        CODE ABOVE IS PLACEHOLDER
-//        THIS IS WHERE THEY DECIDE HOW MUCH FOOD TO GIVE THEM
-//        Land.askHowMuchGrainToFeedPeople(bushels);
+        int grainToFeedPeople = scanner.nextInt();
 
         System.out.println("Certainly you have made the right choice Your Eminence.\n" +
                 "Finally, we must decide how many acres of land we wish to plant with grain!\n" +
                 "I am sure you already know this, Your Greatness, but it costs us 2 bushels of grain\n" +
                 "per acre of land that we plant. Once planted the land will return anywhere from\n" +
-                "1 to 6 bushels of grain the following year. We have " + GREEN_BRIGHT + currentLand + TEXT_RESET + "acres of land that we can plant." +
-                "May Enki bless our lands with fertility and rain.");
+                "1 to 6 bushels of grain the following year. \n" +
+                "We have " + GREEN_BRIGHT + currentLand + TEXT_RESET + " acres of land that we can plant." +
+                "May Enki bless our lands with fertility and rain.\n" +
+                "(enter a number for how many acres of land you would like to plant with grain, and press Enter)");
 
-        scanner.nextInt();
+        int landToPlant = scanner.nextInt();
+
+        System.out.println("Oh Great Hammurabi, your decisions have been noted. Surely goodness and\n" +
+                "prosperity await us in the coming year.\n" +
+                "You have fulfilled your kingly duties, I look forward to our meeting next year.\n\n\n" +
+                "You have completed year " + year + ". Press Enter to begin year " + (year+1) + "\n\n");
+        try{System.in.read();}
+        catch(Exception e){}
+
+
+        //=======================================
+        //THIS IS WHERE THE WHILE LOOP STARTS!!!!
+        //=======================================
+
+        while (year <= 10) {
+            //Review Last Year
+             System.out.println("O Great Hammurabi, how the time has flown! A year has passed since last we met.\n" +
+                     "Allow me to review your choices for last year.\n");
+             if (landToBuy != 0) {System.out.println("You Chose to purchase " + GREEN_BRIGHT + landToBuy + TEXT_RESET + " acres of land");}
+             else if (landToBuy == 0) {System.out.println("You chose to sell " + GREEN_BRIGHT + landToSell + TEXT_RESET + " acres of land");}
+             else {System.out.println("You did not make any changes to the amount of land that we owned last year.");}
+             System.out.println("You fed each of our citizens " + YELLOW_BRIGHT + grainToFeedPeople + TEXT_RESET + " bushels of grain.\n" +
+                     "And finally, you planted " + landToPlant + " acres of land with grain.\n\n" +
+                     "Press Enter to continue.\n");
+             try{System.in.read();}
+             catch(Exception e){}
+
+
+             year++;
+
+         //Call methods to update holdings
+         //wait for classes from eric and tristan
+
+
+
+
+
+
+
+     }
+
+
+
+
+
+
+
+
+
 
 
 
     }
-
-
-//    public Integer askHowManyAcresToBuy(int price, int acres) {
-//        acres = scanner.nextInt();
-//        if ((acres * costOfLand) > currentGrain) {
-//
-//        }
-//    }
-
-
-    void newYear() {
-
-
-
-    }
-
-
-
 }
 
 //UNUSED DIALOGUE GOES OUT HERE
