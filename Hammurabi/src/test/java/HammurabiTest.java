@@ -1,8 +1,8 @@
-import static org.junit.Assert.*;
-
-import hammurabi.Hammurabi;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
+
 
 public class HammurabiTest {
     
