@@ -182,9 +182,6 @@ public class Hammurabi {
 
             System.out.println("Let's get right to the news of this past year, Great Emperor");
 
-//            if (plagueDeaths != 0) {
-//
-//            }
 
 
 
