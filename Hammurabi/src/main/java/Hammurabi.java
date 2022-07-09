@@ -40,6 +40,8 @@ public class Hammurabi {
         int newLand;
         int plagueDeaths;
         int percentDead;
+        int landToSell = 0;
+        int landToBuy = 0;
 
         System.out.println("WELCOME TO\n" +
                 "===================\n" +
@@ -81,13 +83,25 @@ public class Hammurabi {
                 "You may purchase more land, but it will cost " + PURPLE_BRIGHT + costOfLand + TEXT_RESET + " bushels of grain per acre.\n" +
                 "(enter a number for how much land you would like to buy, and press Enter)");
 
-        int landToBuy = scanner.nextInt();
-        int landToSell = 0;
-        if (landToBuy == 0) {
+
+        landToBuy = scanner.nextInt();
+        if (landToBuy !=0) {
+            currentLand += landToBuy;
+            currentBushels -= (costOfLand * landToBuy);
+        }
+        else if (landToBuy == 0) {
             System.out.println("If you do not wish to purchase more land, My Lord, then of course we can choose to\n" +
                     "sell it instead! We can sell land for " + PURPLE_BRIGHT + costOfLand + TEXT_RESET + " bushels of grain per acre.\n" +
                     "(enter a number for how much land you would like to sell, and press Enter)");
             landToSell = scanner.nextInt();
+            if (landToSell != 0) {
+                currentLand -= landToSell;
+                currentBushels += (costOfLand * landToSell);
+            }
+            else if (landToSell == 0) {
+                System.out.println("This year we shall neither purchase, nor sell any of our land.\n" +
+                        "Why change our holdings, when the current amount fits so well?\n");
+            }
         }
 
         System.out.println("An excellent choice Sire. I am in awe of your wisdom.\n" +
@@ -136,19 +150,40 @@ public class Hammurabi {
                      "Press Enter to continue.\n");
              try{System.in.read();}
              catch(Exception e){}
+        //End Review
 
              year++;
 
-         //Call methods to update holdings
-         //wait for classes from eric and tristan
+        //PLAGUE ROLL
+            int plagueChance = rand.nextInt(100);
+            if (plagueChance < 15) {
+                plagueDeaths = People.plagueDeaths(currentPop);
+                currentPop = currentPop - plagueDeaths;
+                System.out.println("The Gods frowned upon us, a great plague swept through the lands killing " +
+                                RED_BRIGHT + plagueDeaths + TEXT_RESET + " people.\n" + currentPop + "citizens remain.");
+            }
+
+        //STARVATION DEATHS AND UPRISING!
+
+
+
+
+
+
+
+
 
         //AFTER METHODS RUN, HERE IS THE REST OF THE UPDATE!
+
+
+
+
+
 
             System.out.println("Let's get right to the news of this past year, Great Emperor");
 
 //            if (plagueDeaths != 0) {
-//                System.out.println("The Gods frowned upon us, a great plague swept through the lands killing " + RED_BRIGHT + plagueDeaths + TEXT_RESET + " people.\n" +
-//                        currentPop + "citizens remain.");
+//
 //            }
 
 
@@ -157,10 +192,6 @@ public class Hammurabi {
 
 
      }
-
-
-
-
 
 
 
