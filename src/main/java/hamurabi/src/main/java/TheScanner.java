@@ -13,7 +13,7 @@ public class TheScanner {
                 return scanner.nextInt();
             }
             catch (InputMismatchException e) {
-                System.out.println("\"" + scanner.next() + "\" isn't a number!");
+                System.out.println("\"" + scanner.next() + "\" isn't a number dumdum! Try again.");
             }
         }
     }
