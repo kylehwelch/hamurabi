@@ -34,13 +34,12 @@ public class Hammurabi {
         int harvest;
         int plagueDeaths;
         int landToSell = 0;
-        int landToBuy = 0;
+        int landToBuy;
         int immigrants;
         int starvationDeaths;
-        boolean uprising = false;
-        int bushelsToFeedPeople = 0;
-        int landToPlant = 0;
-        int ratFood = 0;
+        int bushelsToFeedPeople;
+        int landToPlant;
+        int ratFood;
         int totalImmigrants = 0;
         int totalDeaths = 0;
         int totalHarvest = 0;
@@ -48,31 +47,32 @@ public class Hammurabi {
 
 
 
-        System.out.println("WELCOME TO\n" +
-                "===================\n" +
-                "HAMMURABI!\n" +
-                "===================\n" +
-                "Developed by Kyle, Eric and Tristan\n\n" +
-                "     ^       /\\             /\\   ~!~\n" +
-                "        ^   (())           (())\n" +
-                " ^         /(())\\         /(())\\      ~!~\n" +
-                "          (((())))       (((())))\n" +
-                "          |^|^^|^|_______|^|^^|^|\n" +
-                "      /\\   |^^^^|-_-_-_-_-|^^^^|   /\\\n" +
-                "     (())  | \"\" |+_+_+_+_+| \"\" |  (())\n" +
-                "    ((())) |    |[X]_+_[X]|    | ((()))\n" +
-                "   (((())))|    |+_+_+_+_+|    |(((())))\n" +
-                "   |^|^^|^||____|-_-_-_-_-|____||^|^^|^|\n" +
-                "    |^^^^|_-_-_-_-_-_-_-_-_-_-_-_|^^^^|\n" +
-                "~^~~| \"\" |_-_-_-_-_-_-_-_-_-_-_-_| \"\" |~~\n" +
-                "~~  |    |_+_+_+_+_+_+_+_+_+_+_+_|    | ~^~\n" +
-                " ~^^|    |_+[X]+_[X]_+_[X]_+[X]+_|    |~~^\n" +
-                "    |    |_+_+_+_+_+/l\\+_+_+_+_+_|    |\n" +
-                "    |    |_-_-_-_-_|:::|_-_-_-_-_|    |\n" +
-                "    |____|_+_+_+_+_|:::|_+_+_+_+_|____|\n" +
-                "@@@@@@@@@@@@@@@@@@@@\"\"\"@@@@@@@@@@@@@@@@@@@@\n" +
+        System.out.println("""
+                WELCOME TO
+                ===================
+                HAMMURABI!
+                ===================
+                Developed by Kyle, Eric and Tristan
 
-                "Press Enter to begin!");
+                     ^       /\\             /\\   ~!~
+                        ^   (())           (())
+                 ^         /(())\\         /(())\\      ~!~
+                          (((())))       (((())))
+                          |^|^^|^|_______|^|^^|^|
+                      /\\   |^^^^|-_-_-_-_-|^^^^|   /\\
+                     (())  | "" |+_+_+_+_+| "" |  (())
+                    ((())) |    |[X]_+_[X]|    | ((()))
+                   (((())))|    |+_+_+_+_+|    |(((())))
+                   |^|^^|^||____|-_-_-_-_-|____||^|^^|^|
+                    |^^^^|_-_-_-_-_-_-_-_-_-_-_-_|^^^^|
+                ~^~~| "" |_-_-_-_-_-_-_-_-_-_-_-_| "" |~~
+                ~~  |    |_+_+_+_+_+_+_+_+_+_+_+_|    | ~^~
+                 ~^^|    |_+[X]+_[X]_+_[X]_+[X]+_|    |~~^
+                    |    |_+_+_+_+_+/l\\+_+_+_+_+_|    |
+                    |    |_-_-_-_-_|:::|_-_-_-_-_|    |
+                    |____|_+_+_+_+_|:::|_+_+_+_+_|____|
+                @@@@@@@@@@@@@@@@@@@@""\"@@@@@@@@@@@@@@@@@@@@
+                Press Enter to begin!""");
 
 //        try{scanner.next();}
 //        catch(Exception e){}
@@ -115,12 +115,15 @@ public class Hammurabi {
                     currentBushels += (costOfLand * landToSell);
                     break;
                 } else if (landToSell != 0 && (landToSell > currentLand)) {
-                    System.out.println("We don't have that much land to sell, Sire!\n" +
-                            "Are you sure you don't want to BUY some land?\n" +
-                            "How much land would you like to BUY?");
+                    System.out.println("""
+                            We don't have that much land to sell, Sire!
+                            Are you sure you don't want to BUY some land?
+                            How much land would you like to BUY?""");
                 } else if (landToSell == 0) {
-                    System.out.println("This year we shall neither purchase, nor sell any of our land.\n" +
-                            "Why change our holdings, when the current amount fits so well?\n");
+                    System.out.println("""
+                            This year we shall neither purchase, nor sell any of our land.
+                            Why change our holdings, when the current amount fits so well?
+                            """);
                     break;
                 }
             }
@@ -168,17 +171,21 @@ public class Hammurabi {
             if (landToPlant > currentLand) {
                 System.out.println("We do not have that much land Sire! Please choose a lower amount!\n");
             } else if (landToPlant * 2 > currentBushels) {
-                System.out.println("We do not have enough grain to plant that much land, Sire!\n" +
-                        "Please choose a lower amount of land to plant.\n");
+                System.out.println("""
+                        We do not have enough grain to plant that much land, Sire!
+                        Please choose a lower amount of land to plant.
+                        """);
             } else if (landToPlant <= currentLand && (landToPlant * 2) < currentBushels) {
                 System.out.println("What an excellent choice, O Great Emperor. The land will be planted and grow plentifully.");
                 break;
             }
         }
 
-        System.out.println("Oh Great Hammurabi, your decisions have been noted. Surely goodness and\n" +
-                "prosperity await us in the coming year.\n" +
-                "You have fulfilled your kingly duties, I look forward to our meeting next year.\n\n\n");
+        System.out.println("""
+                Oh Great Hammurabi, your decisions have been noted. Surely goodness and
+                prosperity await us in the coming year.
+                You have fulfilled your kingly duties, I look forward to our meeting next year.
+                """);
 
 
         //=======================================
@@ -198,9 +205,9 @@ public class Hammurabi {
                         "Would you like to play again? y/n\n");
                 String playAgain;
                 playAgain = scanner.nextLine();
-                if (playAgain == "y") {
+                if (playAgain.equals("y")) {
                     new Hammurabi().playGame();
-                } else if (playAgain == "n") {
+                } else if (playAgain.equals("n")) {
                     break;
                 }
             }
@@ -213,8 +220,10 @@ public class Hammurabi {
             }
 
             //Review Last Year
-            System.out.println("O Great Hammurabi, how the time has flown! A year has passed since last we met.\n" +
-                    "Allow me to review your choices for last year.\n");
+            System.out.println("""
+                    O Great Hammurabi, how the time has flown! A year has passed since last we met.
+                    Allow me to review your choices for last year.
+                    """);
             if (landToBuy != 0) {
                 System.out.println("You Chose to purchase " + GREEN_BRIGHT + landToBuy + TEXT_RESET + " acres of land");
             } else if (landToBuy == 0) {
@@ -254,7 +263,7 @@ public class Hammurabi {
             if (starvationDeaths == 0) {
                 System.out.println("Our people were well fed this year! No citizens died from starvation.");
             } else if (starvationDeaths > 0) {
-                if (People.uprising(currentPop, starvationDeaths) == true) {
+                if (People.uprising(currentPop, starvationDeaths)) {
                     System.out.println("Sire! More than half of our people starved to death this year!\n" +
                             "Your decision to feed them less, while frugal, decimated our population. The streets are flooded with\n" +
                             "angry citizens. They are calling for your head! They believe that you would make a powerful sacrifice to\n" +
@@ -264,9 +273,9 @@ public class Hammurabi {
                             "Game Over");
                     String playAgain;
                     playAgain = scanner.nextLine();
-                    if (playAgain == "y") {
+                    if (playAgain.equals("y")) {
                         new Hammurabi().playGame();
-                    } else if (playAgain == "n") {
+                    } else if (playAgain.equals("n")) {
                         break;
                     }
 
@@ -282,9 +291,11 @@ public class Hammurabi {
             currentPop += immigrants;
             totalImmigrants += immigrants;
             if (immigrants == 0) {
-                System.out.println("No new citizens joined our great nation this year.\n" +
-                        "Our people were hungry, and did not inspire any outsiders to join us.\n" +
-                        "They shall be lashed for their insolence!\n");
+                System.out.println("""
+                        No new citizens joined our great nation this year.
+                        Our people were hungry, and did not inspire any outsiders to join us.
+                        They shall be lashed for their insolence!
+                        """);
             } else if (immigrants > 0) {
                 System.out.println("Our people were well fed this year! They spread the word\n" +
                         "to our neighboring countries and people flocked to our borders!\n" +
@@ -341,12 +352,15 @@ public class Hammurabi {
                         currentBushels += (costOfLand * landToSell);
                         break;
                     } else if (landToSell != 0 && (landToSell > currentLand)) {
-                        System.out.println("We don't have that much land to sell, Sire!\n" +
-                                "Are you sure you don't want to BUY some land?\n" +
-                                "How much land would you like to BUY?");
+                        System.out.println("""
+                                We don't have that much land to sell, Sire!
+                                Are you sure you don't want to BUY some land?
+                                How much land would you like to BUY?""");
                     } else if (landToSell == 0) {
-                        System.out.println("This year we shall neither purchase, nor sell any of our land.\n" +
-                                "Why change our holdings, when the current amount fits so well?\n");
+                        System.out.println("""
+                                This year we shall neither purchase, nor sell any of our land.
+                                Why change our holdings, when the current amount fits so well?
+                                """);
                         break;
                     }
                 }
@@ -389,17 +403,23 @@ public class Hammurabi {
                 if (landToPlant > currentLand) {
                     System.out.println("We do not have that much land Sire! Please choose a lower amount!\n");
                 } else if (landToPlant * 2 > currentBushels) {
-                    System.out.println("We do not have enough grain to plant that much land, Sire!\n" +
-                            "Please choose a lower amount of land to plant.\n");
+                    System.out.println("""
+                            We do not have enough grain to plant that much land, Sire!
+                            Please choose a lower amount of land to plant.
+                            """);
                 } else if (landToPlant <= currentLand && (landToPlant * 2) < currentBushels) {
                     System.out.println("What an excellent choice, O Great Emperor. The land will be planted and grow plentifully.");
                     break;
                 }
             }
 
-            System.out.println("Oh Great Hammurabi, your decisions have been noted. Surely goodness and\n" +
-                    "prosperity await us in the coming year.\n" +
-                    "You have fulfilled your kingly duties, I look forward to our meeting next year.\n\n\n");
+            System.out.println("""
+                    Oh Great Hammurabi, your decisions have been noted. Surely goodness and
+                    prosperity await us in the coming year.
+                    You have fulfilled your kingly duties, I look forward to our meeting next year.
+
+
+                    """);
 
         }
     }
