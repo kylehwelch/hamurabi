@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 
+
 //KYLE LAND
 //TRISTAN BUSHELS
 //ERIC PEOPLE
@@ -43,6 +44,8 @@ public class Hammurabi {
         int totalImmigrants = 0;
         int totalDeaths = 0;
         int totalHarvest = 0;
+
+
 
 
         System.out.println("WELCOME TO\n" +
@@ -86,12 +89,13 @@ public class Hammurabi {
                 "We currently have " + CYAN_BRIGHT + currentPop + TEXT_RESET + " citizens, " + GREEN_BRIGHT + currentLand + TEXT_RESET + " acres for them to farm,\n" +
                 "(1 citizen can farm 10 acres) and " + YELLOW_BRIGHT + currentBushels + TEXT_RESET + " bushels of grain in our stores.\n" +
                 "For our first order of business, we must decide how much land we wish to acquire!\n" +
-                "You may purchase more land, but it will cost " + PURPLE_BRIGHT + costOfLand + TEXT_RESET + " bushels of grain per acre.\n" +
-                "(enter a number for how much land you would like to buy, and press Enter)\n");
+                "You may purchase more land, but it will cost " + PURPLE_BRIGHT + costOfLand + TEXT_RESET + " bushels of grain per acre.\n");
+//                "(enter a number for how much land you would like to buy, and press Enter)\n");
 
 
         while (true) {
-            landToBuy = scanner.nextInt();
+//            landToBuy = scanner.nextInt();
+            landToBuy = TheScanner.getNumber("(enter a number for how much land you would like to buy, and press Enter)\n");
             if (landToBuy != 0 && (landToBuy * costOfLand < currentBushels)) {
                 currentLand += landToBuy;
                 currentBushels -= (costOfLand * landToBuy);
@@ -103,9 +107,9 @@ public class Hammurabi {
                         "and we have " + YELLOW_BRIGHT + currentBushels + TEXT_RESET + " bushels of grain.");
             } else if (landToBuy == 0) {
                 System.out.println("If you do not wish to purchase more land, My Lord, then of course we can choose to\n" +
-                        "sell it instead! We can sell land for " + PURPLE_BRIGHT + costOfLand + TEXT_RESET + " bushels of grain per acre.\n" +
-                        "(enter a number for how much land you would like to sell, and press Enter)\n");
-                landToSell = scanner.nextInt();
+                        "sell it instead! We can sell land for " + PURPLE_BRIGHT + costOfLand + TEXT_RESET + " bushels of grain per acre.\n");
+//                        "(enter a number for how much land you would like to sell, and press Enter)\n");
+                landToSell = TheScanner.getNumber("(enter a number for how much land you would like to sell, and press Enter)\n");
                 if ((landToSell != 0) && (landToSell < currentLand)) {
                     currentLand -= landToSell;
                     currentBushels += (costOfLand * landToSell);
@@ -126,11 +130,11 @@ public class Hammurabi {
                 "Next, we must decide how much food we desire to feed our people (if any *wink*).\n" +
                 "20 bushels per person is enough for them to survive, we can give them more\n" +
                 "if we want to make them happier, but who cares about happy people?\n" +
-                "Remember that we only have " + YELLOW_BRIGHT + currentBushels + TEXT_RESET + " bushels of grain in our stores.\n" +
-                "(enter a number for how many total bushels of grain to feed all of our citizens, and press Enter)\n");
+                "Remember that we only have " + YELLOW_BRIGHT + currentBushels + TEXT_RESET + " bushels of grain in our stores.\n");
+//                "(enter a number for how many total bushels of grain to feed all of our citizens, and press Enter)\n");
 
         while (true) {
-            bushelsToFeedPeople = scanner.nextInt();
+            bushelsToFeedPeople = TheScanner.getNumber("(enter a number for how many total bushels of grain to feed all of our citizens, and press Enter)\n");
             if (bushelsToFeedPeople < (currentPop * 20)) {
                 System.out.println("A frugal decision, the people will have to learn restraint and ration their foods properly\n");
                 currentBushels -= bushelsToFeedPeople;
@@ -155,12 +159,12 @@ public class Hammurabi {
                 "per acre of land that we plant. Once planted the land will return anywhere from\n" +
                 "1 to 6 bushels of grain the following year. \n" +
                 "We have " + GREEN_BRIGHT + currentLand + TEXT_RESET + " acres of land that we can plant.\n" +
-                "May Enki bless our lands with fertility and rain.\n" +
-                "(enter a number for how many acres of land you would like to plant with grain, and press Enter)\n");
+                "May Enki bless our lands with fertility and rain.\n");
+//                "(enter a number for how many acres of land you would like to plant with grain, and press Enter)\n");
 
 
         while (true) {
-            landToPlant = scanner.nextInt();
+            landToPlant = TheScanner.getNumber("(enter a number for how many acres of land you would like to plant with grain, and press Enter)\n");
             if (landToPlant > currentLand) {
                 System.out.println("We do not have that much land Sire! Please choose a lower amount!\n");
             } else if (landToPlant * 2 > currentBushels) {
@@ -312,12 +316,12 @@ public class Hammurabi {
                     "We have " + CYAN_BRIGHT + currentPop + TEXT_RESET + " citizens.\n" +
                     "We have " + GREEN_BRIGHT + currentLand + TEXT_RESET + " acres of land.\n" +
                     "Our food stores hold " + YELLOW_BRIGHT + currentBushels + TEXT_RESET + " bushels of grain.\n" +
-                    "The cost of land is " + PURPLE_BRIGHT + costOfLand + TEXT_RESET + " bushels of grain per acre.\n" +
-                    "How much land would you like to purchase this year?\n");
+                    "The cost of land is " + PURPLE_BRIGHT + costOfLand + TEXT_RESET + " bushels of grain per acre.\n");
+//                    "How much land would you like to purchase this year?\n");
 
 
             while (true) {
-                landToBuy = scanner.nextInt();
+                landToBuy = TheScanner.getNumber("How much land would you like to purchase this year?\n");
                 if (landToBuy != 0 && (landToBuy * costOfLand < currentBushels)) {
                     currentLand += landToBuy;
                     currentBushels -= (costOfLand * landToBuy);
@@ -329,9 +333,9 @@ public class Hammurabi {
                             "and we have " + YELLOW_BRIGHT + currentBushels + TEXT_RESET + " bushels of grain.");
                 } else if (landToBuy == 0) {
                     System.out.println("If you do not wish to purchase more land, My Lord, then of course we can choose to\n" +
-                            "sell it instead! We can sell land for " + PURPLE_BRIGHT + costOfLand + TEXT_RESET + " bushels of grain per acre.\n" +
-                            "(enter a number for how much land you would like to sell, and press Enter)\n");
-                    landToSell = scanner.nextInt();
+                            "sell it instead! We can sell land for " + PURPLE_BRIGHT + costOfLand + TEXT_RESET + " bushels of grain per acre.\n");
+//                            "(enter a number for how much land you would like to sell, and press Enter)\n");
+                    landToSell = TheScanner.getNumber("(enter a number for how much land you would like to sell, and press Enter)\n");
                     if ((landToSell != 0) && (landToSell < currentLand)) {
                         currentLand -= landToSell;
                         currentBushels += (costOfLand * landToSell);
@@ -350,11 +354,11 @@ public class Hammurabi {
 
             System.out.println("As always, I am ever impressed by your endless knowledge and wisdom.\n" +
                     "It is time to choose how many bushels of grain you wish to feed to your people\n" +
-                    "We have " + YELLOW_BRIGHT + currentBushels + TEXT_RESET + " bushels in our stores now.\n" +
-                    "How much would you like to give to our citizens?");
+                    "We have " + YELLOW_BRIGHT + currentBushels + TEXT_RESET + " bushels in our stores now.\n");
+//                    "How much would you like to give to our citizens?");
 
             while (true) {
-                bushelsToFeedPeople = scanner.nextInt();
+                bushelsToFeedPeople = TheScanner.getNumber("How much would you like to give to our citizens?");
                 if (bushelsToFeedPeople < (currentPop * 20)) {
                     System.out.println("A frugal decision, the people will have to learn restraint and ration their foods properly\n");
                     currentBushels -= bushelsToFeedPeople;
@@ -376,12 +380,12 @@ public class Hammurabi {
             System.out.println("Certainly you have made the right choice Your Eminence.\n" +
                     "Finally, we must decide how many acres of land we wish to plant with grain!\n" +
                     "We have " + GREEN_BRIGHT + currentLand + TEXT_RESET + " acres of land that we can plant.\n" +
-                    "May Enki bless our lands with fertility and rain.\n" +
-                    "How many acres would you like to plant?\n");
+                    "May Enki bless our lands with fertility and rain.\n");
+//                    "How many acres would you like to plant?\n");
 
 
             while (true) {
-                landToPlant = scanner.nextInt();
+                landToPlant = TheScanner.getNumber("How many acres would you like to plant?\n");
                 if (landToPlant > currentLand) {
                     System.out.println("We do not have that much land Sire! Please choose a lower amount!\n");
                 } else if (landToPlant * 2 > currentBushels) {

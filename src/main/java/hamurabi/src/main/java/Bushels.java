@@ -1,6 +1,8 @@
 package hamurabi.src.main.java;
 
+
 import java.util.Random;
+
 
 public class Bushels {
     public static int harvest(int acres) {
